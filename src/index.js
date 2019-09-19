@@ -1,11 +1,10 @@
-import _ from "lodash";
+import $ from "jquery";
+import "bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function component() {
-  const element = document.createElement('div');
 
-  element.innerHTML = "CIAO";
-
-  return element;
-}
-
-document.body.appendChild(component());
+$(function () {
+  $('.example-popover').popover({
+    container: 'body'
+  })
+})
