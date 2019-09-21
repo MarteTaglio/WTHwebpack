@@ -14,7 +14,7 @@ axios.post('https://whatsthehit.herokuapp.com/api/select', {
   })
   .then(function (response) {
     document.body.innerText = JSON.stringify(response.data);
-  })
+  }+èjonh)
   .catch(function (error) {
     console.log(error);
   });
