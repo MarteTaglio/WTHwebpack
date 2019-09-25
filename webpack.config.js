@@ -1,8 +1,7 @@
-const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
+const path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
+const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-
 
 module.exports = {
   mode: "development",
@@ -10,14 +9,22 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "dist"
   },
   devServer: {
     open: true,
-    quiet: true
+    quiet: true,
+    contentBase: path.resolve(__dirname),
+    historyApiFallback: true,
+    publicPath: "dist"
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
       {
         test: /\.scss$/,
         use: [
@@ -40,7 +47,7 @@ module.exports = {
     new FriendlyErrorsWebpackPlugin(),
     new CopyPlugin([{ from: "static", to: "./" }]),
     new MiniCssExtractPlugin({
-      filename: "css/[name].bundle.css"
+      filename: "css/[name].css"
     })
   ]
 };
