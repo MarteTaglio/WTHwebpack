@@ -1,13 +1,13 @@
-// Import axios per la chiamata al server whatsthehit
-import axios from "axios";
-
 // Importo il mio file di stile scss personale
 import "./scss/main.scss";
 
+// Import axios per la chiamata al server whatsthehit
+import axios from "axios";
+
 function fetchTest() {
-  // TODO se sei in locale occorre inserire URL intero con https
+  // ? se sei in locale occorre inserire URL intero con https
   // ? test di inserimento in whatsthehit
-  // ! nella cartella WHATSTHEHIT /api/select
+  // ? nella cartella WHATSTHEHIT /api/select
   axios
     .post("https://whatsthehit.herokuapp.com/api/select", {
       from: ["canzone", "artista"],

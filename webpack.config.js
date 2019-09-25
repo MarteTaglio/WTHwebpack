@@ -10,34 +10,33 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "dist"
+    publicPath: "/dist/"
   },
   devServer: {
+    publicPath: "/",
+    contentBase: path.join(__dirname, "dist"),
     open: true,
-    quiet: true,
-    contentBase: path.resolve(__dirname),
-    historyApiFallback: true,
-    publicPath: "dist"
+    quiet: true
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
       },
       {
-        test: /\.scss$/,
+        test: /\.(sass|scss)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader"
           },
           {
-            loader: "sass-loader",
-            options: {
+            loader: "sass-loader"
+            /* options: {
               sourceMap: true
               // options...
-            }
+            } */
           }
         ]
       }
