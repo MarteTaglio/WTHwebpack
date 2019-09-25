@@ -7,10 +7,14 @@ function fetchTest() {
   // ? test di inserimento in whatsthehit
   // ! nella cartella WHATSTHEHIT /api/select 
 axios.post('https://whatsthehit.herokuapp.com/api/select', {
-  "from": "canzone",
-  "select": "titolo",
-  "where": {
-    "anno": "1980"}
+  "from": ["canzone", "artista"],
+  "select": ["titolo as canzone", "nome as artista",],
+  "where": {
+    "anno": "1980"
+  },
+  "orderby": "punteggio",
+  "desc": true,
+  "limit":50
   })
   .then(function (response) {
     document.body.innerText = JSON.stringify(response.data);
