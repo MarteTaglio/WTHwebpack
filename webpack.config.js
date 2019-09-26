@@ -16,7 +16,8 @@ module.exports = {
     publicPath: "/",
     contentBase: path.join(__dirname, "dist"),
     open: true,
-    quiet: true
+    quiet: true,
+    writeToDisk: true
   },
   module: {
     rules: [
