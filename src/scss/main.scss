@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url("/font/Gotham.otf");
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 // Set your brand colors
 $purple: #8a4d76;
@@ -9,21 +9,24 @@ $pink: #fa7c91;
 $brown: #757763;
 $beige-light: #d0d1cd;
 $beige-lighter: #eff0eb;
+$info: #1e9ced;
+$dark: hsl(0, 0%, 21%);
 
 // Update Bulma's global variables
-$family-sans-serif: "Gotham", sans-serif;
+$family-sans-serif: 'Montserrat', sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary: $purple;
 $link: $pink;
-$widescreen-enabled: false;
-$fullhd-enabled: false;
+$widescreen-enabled: true;
+$fullhd-enabled: true;
 
 // Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
+$body-background-color: $dark;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
+$footer-background-color: $dark;
 
 // Import only what you need from Bulma
 @import "~bulma/bulma";
