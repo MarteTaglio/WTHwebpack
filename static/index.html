@@ -11,7 +11,7 @@
   <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item">
-        <img src="img/Logo.svg" width="112" height="28">
+        <img src="img/naming.svg" width="112" height="28">
       </a>
 
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
@@ -29,27 +29,20 @@
         </a>
 
         <a class="navbar-item">
-          Documentation
+          Ricerca la tua musica!
         </a>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-            More
+            Altro
           </a>
 
           <div class="navbar-dropdown">
             <a class="navbar-item">
-              About
+              Utilizzo
             </a>
             <a class="navbar-item">
-              Jobs
-            </a>
-            <a class="navbar-item">
-              Contact
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Report an issue
+              Chi siamo
             </a>
           </div>
         </div>
@@ -57,15 +50,17 @@
     </div>
   </nav>
 
-  <section class="hero is-dark">
+  <section class="hero is-medium is-bold">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">
-          Primary title
+        <div class="level">
+          <div class="level-item">
+            <img src="img/logo.svg" width="450">
+          </div>
+        </div>
+        <h1 class="subtitle has-text-white has-text-centered is-size-3">
+          Il tuo viaggio nella musica
         </h1>
-        <h2 class="subtitle">
-          Primary subtitle
-        </h2>
       </div>
     </div>
   </section>
@@ -86,13 +81,31 @@
       </p>
     </div>
 
+    <button class="toggle-modal">Canzone</button>
+    <div class="modal" id="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Modal title</p>
+          <button class="delete toggle-modal"></button>
+        </header>
+        <section class="modal-card-body">
+          <p> Contenuto di prova </p>
+        </section>
+        <footer class="modal-card-foot">
+          <a class="button is-success toggle-modal">Save changes</a>
+          <a class="button toggle-modal">Cancel</a>
+        </footer>
+      </div>
+    </div>
+
     <div class="buttons">
       <a id="bottone" class="button is-info is-medium is-oulined">FETCHTEST</a>
     </div>
-  <footer class="footer is-size-7">
+  <footer class="footer has-text-white is-size-7">
     <div class="content has-text-centered">
       <p>
-        <strong>WHATSTHEHIT</strong> una webapp di Martino Tagliente, Stefano Tambellini e Alessandra Paone. Copyright © 2019. Tutti i diritti riservati.
+       WHATSTHEHIT una webapp di Martino Tagliente, Stefano Tambellini e Alessandra Paone. Copyright © 2019. Tutti i diritti riservati.
       </p>
     </div>
   </footer>
