@@ -13,7 +13,7 @@ function fetchTest() {
       from: ["canzone", "artista"],
       select: ["titolo as canzone", "nome as artista"],
       where: {
-        anno: "1980"
+        anno: ["1900","2016"]
       },
       orderby: "punteggio",
       desc: true,
