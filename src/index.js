@@ -4,7 +4,9 @@ import "./scss/main.scss";
 // Import axios per la chiamata al server whatsthehit
 import axios from "axios";
 
-function fetchTest() {
+
+
+/*function fetchTest() {
   // ? se sei in locale occorre inserire URL intero con https
   // ? test di inserimento in whatsthehit
   // ? nella cartella WHATSTHEHIT /api/select
@@ -26,8 +28,36 @@ function fetchTest() {
       console.log(error);
     });
 }
+*/
+function cerca() {
+  var inp = document.getElementById("ricerca");
+  var value = inp.value
 
-document.getElementById("bottone").addEventListener("click", fetchTest);
+  var search = {
+    from: ["canzone", "artista"],
+    select: ["titolo as canzone", "nome as artista", "anno"],
+    orderby: "punteggio",
+    desc: true,
+    limit: 50
+  };
+
+  search.where= {
+    anno: value
+  }
+
+  axios
+    .post("https://whatsthehit.herokuapp.com/api/select", search)
+    .then(function(response) {
+      document.body.innerText = JSON.stringify(response.data);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
+
+var but = document.getElementById("bottone");
+but.addEventListener("click", cerca);
 
 document.addEventListener('DOMContentLoaded', () => {
 
