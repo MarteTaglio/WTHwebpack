@@ -4,31 +4,10 @@ import "./scss/main.scss";
 // Import axios per la chiamata al server whatsthehit
 import axios from "axios";
 
-
-
-/*function fetchTest() {
   // ? se sei in locale occorre inserire URL intero con https
   // ? test di inserimento in whatsthehit
   // ? nella cartella WHATSTHEHIT /api/select
-  axios
-    .post("https://whatsthehit.herokuapp.com/api/select", {
-      from: ["canzone", "artista"],
-      select: ["titolo as canzone", "nome as artista"],
-      where: {
-        anno: ["1900","2016"]
-      },
-      orderby: "punteggio",
-      desc: true,
-      limit: 50
-    })
-    .then(function(response) {
-      document.body.innerText = JSON.stringify(response.data);
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-}
-*/
+
 function cerca() {
   var inp = document.getElementById("ricerca");
   var value = inp.value
@@ -54,7 +33,6 @@ function cerca() {
       console.log(error);
     });
 }
-
 
 var but = document.getElementById("bottone");
 but.addEventListener("click", cerca);
