@@ -3,6 +3,7 @@ import "./scss/main.scss";
 
 // Import axios per la chiamata al server whatsthehit
 import axios from "axios";
+import simpleParallax from "simple-parallax-js";
 
   // ? se sei in locale occorre inserire URL intero con https
   // ? test di inserimento in whatsthehit
@@ -73,3 +74,8 @@ var modal = document.getElementById('modal');
   function toggleClass() {
     modal.classList.toggle('is-active');
   }
+
+var image = document.getElementsByClassName("thumbnail");
+new simpleParallax(image, {
+  orientation: "right"
+});
