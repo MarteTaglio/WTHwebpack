@@ -21,6 +21,7 @@ $link: $pink;
 $widescreen-enabled: true;
 $fullhd-enabled: true;
 
+
 // Update some of Bulma's component variables
 $body-background-color: $dark;
 $control-border-width: 2px;
@@ -30,3 +31,4 @@ $footer-background-color: $dark;
 
 // Import only what you need from Bulma
 @import "~bulma/bulma";
+@import "~bulma-divider";

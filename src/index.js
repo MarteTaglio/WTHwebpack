@@ -75,7 +75,8 @@ var modal = document.getElementById('modal');
     modal.classList.toggle('is-active');
   }
 
+  //Parallax effect code
 var image = document.getElementsByClassName("thumbnail");
 new simpleParallax(image, {
-  orientation: "right"
+  orientation: "left"
 });
