@@ -1,97 +1,115 @@
 <!DOCTYPE html>
 <html lang="it">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>WHATSTHEHIT</title>
     <link rel="stylesheet" href="css/main.css" />
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
   </head>
   <body class="container">
-  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item">
-        <img src="img/naming.svg" width="112" height="28">
-      </a>
-
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-        data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
         <a class="navbar-item">
-          Home
+          <img src="img/naming.svg" width="112" height="28" />
         </a>
 
-        <a class="navbar-item" href="#cerca">
-          Ricerca la tua musica!
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
+      </div>
 
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Altro
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Home
           </a>
 
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              Utilizzo
+          <a class="navbar-item" href="#cerca">
+            Ricerca la tua musica!
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Altro
             </a>
-            <a class="navbar-item">
-              Chi siamo
-            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                Utilizzo
+              </a>
+              <a class="navbar-item">
+                Chi siamo
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <section class="hero is-medium is-bold">
-    <div class="hero-body">
-      <div class="container">
-        <div class="level">
-          <div class="level-item">
-            <img src="img/logo.svg" width="450">
+    <section class="hero is-medium is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <div class="level">
+            <div class="level-item">
+              <img src="img/logo.svg" width="450" />
+            </div>
           </div>
+          <h1 class="subtitle has-text-white has-text-centered is-size-3">
+            Il tuo viaggio nella musica
+          </h1>
         </div>
-        <h1 class="subtitle has-text-white has-text-centered is-size-3">
-          Il tuo viaggio nella musica
-        </h1>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div id="cerca" class="level-item">
-    <div class="field has-addons">
-      <div class="control">
-        <input id="ricerca" class="input" type="text" placeholder="Inserisci Anno">
-      </div>
-      <div class="control">
-        <a  id="bottone" class="button is-info">
-          Vai!
-        </a>
+    <div id="cerca" class="level-item">
+      <div class="field has-addons">
+        <div class="control">
+          <input
+            id="ricerca"
+            class="input"
+            type="number"
+            min="1900"
+            max="2016"
+            value="1978"
+            placeholder="Inserisci Anno"
+          />
+        </div>
+        <div class="control">
+          <a id="bottone" class="button is-info">
+            Vai!
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="level-item">
-    <div class="control has-text-white">
-      <label class="radio ">
-        <input type="radio" name="answer" checked>
-        Artista
-      </label>
-      <label class="radio">
-        <input type="radio" name="answer">
-        Album
-      </label>
-    </div>
-  </div>
 
-<!--   <button class="toggle-modal">Canzone</button>
+    <div class="level-item">
+      <div class="control has-text-white">
+        <label class="radio ">
+          <input id="song" type="radio" name="answer" checked />
+          Canzone
+        </label>
+        <label class="radio">
+          <input id="album" type="radio" name="answer" />
+          Album
+        </label>
+      </div>
+    </div>
+
+    <div id="recordList"></div>
+
+    <!--   <button class="toggle-modal">Canzone</button>
     <div class="modal" id="modal">
       <div class="modal-background"></div>
       <div class="modal-card">
@@ -113,7 +131,7 @@
 
     <div class="is-divider is-dark"></div>
 
-    <img class="thumbnail is-fullhd" src="img/wallpaper.png" alt="image">
+    <img class="thumbnail is-fullhd" src="img/wallpaper.png" alt="image" />
 
     <div class="is-divider is-dark"></div>
 
@@ -133,7 +151,12 @@
       <div id="cerca" class="level-item">
         <div class="field has-addons">
           <div class="control">
-            <input id="ricerca" class="input" type="text" placeholder="Inserisci Artista">
+            <input
+              id="ricerca"
+              class="input"
+              type="text"
+              placeholder="Inserisci Artista"
+            />
           </div>
           <div class="control">
             <a id="bottone" class="button is-info">
@@ -146,7 +169,12 @@
       <div id="cerca" class="level-item">
         <div class="field has-addons">
           <div class="control">
-            <input id="ricerca" class="input" type="text" placeholder="Inserisci Genere">
+            <input
+              id="ricerca"
+              class="input"
+              type="text"
+              placeholder="Inserisci Genere"
+            />
           </div>
           <div class="control">
             <a id="bottone" class="button is-info">
@@ -159,7 +187,12 @@
       <div id="cerca" class="level-item">
         <div class="field has-addons">
           <div class="control">
-            <input id="ricerca" class="input" type="text" placeholder="Inserisci Nazione">
+            <input
+              id="ricerca"
+              class="input"
+              type="text"
+              placeholder="Inserisci Nazione"
+            />
           </div>
           <div class="control">
             <a id="bottone" class="button is-info">
@@ -170,16 +203,14 @@
       </div>
     </div>
 
-
-    
-
-  <footer class="footer has-text-white is-size-7">
-    <div class="content has-text-centered">
-      <p>
-       WHATSTHEHIT una webapp di Martino Tagliente, Stefano Tambellini e Alessandra Paone. Copyright © 2019. Tutti i diritti riservati.
-      </p>
-    </div>
-  </footer>
+    <footer class="footer has-text-white is-size-7">
+      <div class="content has-text-centered">
+        <p>
+          WHATSTHEHIT una webapp di Martino Tagliente, Stefano Tambellini e
+          Alessandra Paone. Copyright © 2019. Tutti i diritti riservati.
+        </p>
+      </div>
+    </footer>
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
