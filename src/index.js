@@ -1,3 +1,7 @@
+"use strict";
+
+// SINTASSI ES6 formalmente ES2015
+
 // Importo il mio file di stile scss personale
 import "./scss/main.scss";
 
@@ -5,6 +9,7 @@ import "./scss/main.scss";
 import axios from "axios";
 import simpleParallax from "simple-parallax-js";
 
+// Importo un file javascript locale
 import generateList from "./js/generateList.js";
 
 // ? se sei in locale occorre inserire URL intero con https
@@ -17,7 +22,9 @@ function cerca() {
   var search;
   var option = document.getElementById("song");
 
+  // se l'option è checked
   if (option.checked) {
+    // la ricerca è in base alla canzone
     search = {
       from: ["canzone", "artista"],
       select: ["titolo as canzone", "nome as artista", "anno"],
@@ -30,6 +37,7 @@ function cerca() {
       anno: value
     };
   } else {
+    //... altrimenti in base all'artista
     search = {
       from: ["album", "artista"],
       select: ["titolo as album", "nome as artista", "anno"],
@@ -43,9 +51,11 @@ function cerca() {
     };
   }
 
+  // faccio una richiesta ASINCRONA al server di whatsthehit
   axios
     .post("https://whatsthehit.herokuapp.com/api/select", search)
     .then(function(response) {
+      // UNA VOLTA CHE LA RICHIESTA è ANDATA A BUON FINE
       generateList(response.data);
     })
     .catch(function(error) {
@@ -56,6 +66,7 @@ function cerca() {
 var but = document.getElementById("bottone");
 but.addEventListener("click", cerca);
 
+//NAVBAR
 document.addEventListener("DOMContentLoaded", () => {
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(
