@@ -10,7 +10,7 @@
       src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
     ></script>
   </head>
-  <body class="container">
+  <body>
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item">
@@ -59,53 +59,48 @@
     </nav>
 
     <section class="hero is-medium is-bold">
+      <img class="hero-background" src="/img/bak.png" />
       <div class="hero-body">
         <div class="container">
-          <div class="level">
-            <div class="level-item">
-              <img src="img/logo.svg" width="450" />
+          <div id="cerca" class="level-item">
+            <div class="field has-addons">
+              <div class="control">
+                <input
+                  id="ricerca"
+                  class="input is-info"
+                  type="number"
+                  min="1900"
+                  max="2016"
+                  placeholder="Inserisci Anno"
+                  style=" width: 200px"
+                />
+              </div>
+              <div class="control">
+                <a id="bottone" class="button is-info">
+                  Vai!
+                </a>
+              </div>
             </div>
           </div>
-          <h1 class="subtitle has-text-white has-text-centered is-size-3">
+          <div class="level-item">
+            <div class="control has-text-white">
+              <label class="radio">
+                <input id="song" type="radio" name="answer" checked />
+                Canzone
+              </label>
+              <label class="radio">
+                <input id="album" type="radio" name="answer" />
+                Album
+              </label>
+            </div>
+          </div>
+        </br>
+          <h1 class="subtitle has-text-white has-text-centered is-size-1">
             Il tuo viaggio nella musica
           </h1>
         </div>
       </div>
     </section>
-
-    <div id="cerca" class="level-item">
-      <div class="field has-addons">
-        <div class="control">
-          <input
-            id="ricerca"
-            class="input"
-            type="number"
-            min="1900"
-            max="2016"
-            value="1978"
-            placeholder="Inserisci Anno"
-          />
-        </div>
-        <div class="control">
-          <a id="bottone" class="button is-info">
-            Vai!
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="level-item">
-      <div class="control has-text-white">
-        <label class="radio ">
-          <input id="song" type="radio" name="answer" checked />
-          Canzone
-        </label>
-        <label class="radio">
-          <input id="album" type="radio" name="answer" />
-          Album
-        </label>
-      </div>
-    </div>
 
     <div id="recordList"></div>
 
@@ -129,23 +124,13 @@
       </div>
     </div> -->
 
-    <div class="is-divider is-dark"></div>
+    <img class="thumbnail" src="img/wallpaper.png" alt="image" />
 
-    <img class="thumbnail is-fullhd" src="img/wallpaper.png" alt="image" />
+  </br>
 
-    <div class="is-divider is-dark"></div>
-
-    <div class="level">
-      <h2 class="level-item has-text-centered">
-        Ricerca per Artista!
-      </h2>
-      <h2 class="level-item has-text-centered">
-        Ricerca per Genere!
-      </h2>
-      <h2 class="level-item has-text-centered">
-        Ricerca per Nazione!
-      </h2>
-    </div>
+    <h1 class="level-item has-text-info is-size-3 has-text-centered">
+      Ricerca per Artista!
+    </h1>
 
     <div class="level">
       <div id="cerca" class="level-item">
@@ -153,7 +138,7 @@
           <div class="control">
             <input
               id="ricerca"
-              class="input"
+              class="input is-info"
               type="text"
               placeholder="Inserisci Artista"
             />
@@ -165,43 +150,8 @@
           </div>
         </div>
       </div>
-
-      <div id="cerca" class="level-item">
-        <div class="field has-addons">
-          <div class="control">
-            <input
-              id="ricerca"
-              class="input"
-              type="text"
-              placeholder="Inserisci Genere"
-            />
-          </div>
-          <div class="control">
-            <a id="bottone" class="button is-info">
-              Vai!
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div id="cerca" class="level-item">
-        <div class="field has-addons">
-          <div class="control">
-            <input
-              id="ricerca"
-              class="input"
-              type="text"
-              placeholder="Inserisci Nazione"
-            />
-          </div>
-          <div class="control">
-            <a id="bottone" class="button is-info">
-              Vai!
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
+
 
     <footer class="footer has-text-white is-size-7">
       <div class="content has-text-centered">

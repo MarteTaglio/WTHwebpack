@@ -104,5 +104,5 @@ function toggleClass() {
 //Parallax effect code
 var image = document.getElementsByClassName("thumbnail");
 new simpleParallax(image, {
-  orientation: "left"
+  scale: 1.4
 });
