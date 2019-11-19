@@ -1,9 +1,9 @@
-//import axios from "axios";
+import axios from "axios";
 
 // Programmazione a oggetti
 //Definisco una classe che utilizzo dopo
 class Record {
-    // richiamata quando viene definito nuovo record con NEW
+  // richiamata quando viene definito nuovo  record con NEW
   constructor(settings) {
     this.settings = settings;
   }
@@ -16,38 +16,79 @@ class Record {
     // ? classi di bulma ?
     // jquery
 
-    var p = document.createElement("p");
-    p.innerText = this.settings.canzone + " - " + this.settings.nome;
+    // Div esterno
+    var ance = document.createElement("div");
+    ance.setAttribute("class", "tile is-4 is-parent");
 
-    list.appendChild(p);
+    var box = document.createElement("article");
+    box.setAttribute("class", "tile is-child box");
+
+    var h1 = document.createElement("h1");
+    h1.setAttribute("class", "title");
+    h1.innerText = this.settings.h1;
+
+    var h2 = document.createElement("h2");
+    h2.setAttribute("class", "subtitle");
+    h2.innerText = this.settings.artista;
+
+    /* var g = document.createElement("p");
+    g.innerText = this.settings.genere; */
+
+    box.appendChild(h1);
+    box.appendChild(h2);
+    /* box.appendChild(g); */
+    ance.appendChild(box);
+
+    ance.addEventListener("click", () => {
+      console.log(this.settings);
+
+      document.getElementById("modal").classList.toggle("is-active");
+
+      document.getElementById("modalContent").innerText = this.settings.artista;
+
+      axios
+        .get(
+          "https://whatsthehit.herokuapp.com/api/genre?name=" +
+            this.settings.artista
+        )
+        .then(response => {
+          this.settings.genere = response.data;
+          this.renderGenre(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    });
+
+    list.appendChild(ance);
+  }
+
+  renderGenre(genre) {
+    document.getElementById("modalContent").innerText += " - " + genre;
   }
 }
-
-// Programmazione funzionale
-/* function RecordFunction(settings) {
-  this.settings = settings;
-
-  this.render = function() {
-    // ...
-  };
-} */
 
 // sintassi es2015 per far caricare una funzione quando si fa IMPORT di questo file
 export default function(jsonList) {
   var recordArray = [];
 
   document.getElementById("recordList").innerText = "";
-  jsonList.forEach(function(record) {
-      // per ogni record creo un nuvoo oggetto recordo che aggiungo all'array dichiarato prima
-    recordArray.push(new Record(record));
+  jsonList.forEach(function(recordSettings) {
+    // per ogni record creo un nuvoo oggetto recordo che aggiungo all'array dichiarato prima
+    var record = new Record(recordSettings);
+    record.render();
+
+    recordArray.push(record);
   });
 
   // TODO: ordina array di record
 
   // per ogni record nella LISTA scorro e richiamo console.log sul record
-  recordArray.forEach(record => { // sintassi es2015 per la creazione di una funzione anonima
+  /* recordArray.forEach(record => {
+    // sintassi es2015 per la creazione di una funzione anonima
     console.log(record);
-    /* axios
+
+    axios
       .get(
         "https://whatsthehit.herokuapp.com/api/genre?name=" +
           record.settings.artista
@@ -58,6 +99,6 @@ export default function(jsonList) {
       })
       .catch(function(error) {
         console.log(error);
-      }); */
-  });
+      });
+  }); */
 }

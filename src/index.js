@@ -27,7 +27,7 @@ function cerca() {
     // la ricerca è in base alla canzone
     search = {
       from: ["canzone", "artista"],
-      select: ["titolo as canzone", "nome as artista", "anno"],
+      select: ["titolo as h1", "nome as artista", "anno"],
       orderby: "punteggio",
       desc: true,
       limit: 50
@@ -40,7 +40,7 @@ function cerca() {
     //... altrimenti in base all'artista
     search = {
       from: ["album", "artista"],
-      select: ["titolo as album", "nome as artista", "anno"],
+      select: ["titolo as h1", "nome as artista", "anno"],
       orderby: "punteggio",
       desc: true,
       limit: 50

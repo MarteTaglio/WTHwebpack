@@ -59,7 +59,7 @@
     </nav>
 
     <section class="hero is-medium is-bold">
-      <img class="hero-background" src="/img/bak.png" />
+      <img id="backimg" class="hero-background" src="/img/bak.png" />
       <div class="hero-body">
         <div class="container">
           <div id="cerca" class="level-item">
@@ -94,7 +94,7 @@
               </label>
             </div>
           </div>
-        </br>
+          <br />
           <h1 class="subtitle has-text-white has-text-centered is-size-1">
             Il tuo viaggio nella musica
           </h1>
@@ -102,31 +102,32 @@
       </div>
     </section>
 
-    <div id="recordList"></div>
+    <div
+      id="recordList"
+      class="tile is-ancestor"
+      style="flex-wrap: wrap;"
+    ></div>
 
-    <!--   <button class="toggle-modal">Canzone</button>
     <div class="modal" id="modal">
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
-          
           <p class="modal-card-title">Modal title</p>
           <button class="delete toggle-modal"></button>
-         
         </header>
         <section class="modal-card-body">
-           <p> Contenuto di prova </p>
+          <p id="modalContent">Contenuto di prova</p>
         </section>
         <footer class="modal-card-foot">
           <a class="button is-success toggle-modal">Save changes</a>
           <a class="button toggle-modal">Cancel</a>
         </footer>
       </div>
-    </div> -->
+    </div>
 
     <img class="thumbnail" src="img/wallpaper.png" alt="image" />
 
-  </br>
+    <br />
 
     <h1 class="level-item has-text-info is-size-3 has-text-centered">
       Ricerca per Artista!
@@ -151,7 +152,6 @@
         </div>
       </div>
     </div>
-
 
     <footer class="footer has-text-white is-size-7">
       <div class="content has-text-centered">
