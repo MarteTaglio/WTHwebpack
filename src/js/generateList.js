@@ -44,6 +44,8 @@ class Record {
 
       document.getElementById("modal").classList.toggle("is-active");
 
+      document.getElementById("modalcard").innerText = this.settings.h1;
+
       document.getElementById("modalContent").innerText = this.settings.artista;
 
       axios
@@ -64,7 +66,7 @@ class Record {
   }
 
   renderGenre(genre) {
-    document.getElementById("modalContent").innerText += " - " + genre;
+    document.getElementById("genere").innerText = genre;
   }
 }
 

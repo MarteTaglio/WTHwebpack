@@ -61,7 +61,7 @@
     <section class="hero is-medium is-bold">
       <img id="backimg" class="hero-background" src="/img/bak.png" />
       <div class="hero-body">
-        <div class="container">
+        <div id="barra" class="container">
           <div id="cerca" class="level-item">
             <div class="field has-addons">
               <div class="control">
@@ -72,7 +72,7 @@
                   min="1900"
                   max="2016"
                   placeholder="Inserisci Anno"
-                  style=" width: 200px"
+                  style="width: 200px"
                 />
               </div>
               <div class="control">
@@ -95,7 +95,7 @@
             </div>
           </div>
           <br />
-          <h1 class="subtitle has-text-white has-text-centered is-size-1">
+          <h1 class="subtitle has-text-white has-text-centered is-size-3">
             Il tuo viaggio nella musica
           </h1>
         </div>
@@ -108,59 +108,159 @@
       style="flex-wrap: wrap;"
     ></div>
 
+    <div id="why" class="section">
+      <h1 class="title is-2 has-text-centered has-text-white">
+        Perchè WHATSTHEHIT?
+      </h1>
+
+      <div id="tile">
+        <div class="tile is-ancestor">
+          <div class="tile is-vertical is-8">
+            <div class="tile">
+              <div class="tile is-parent is-vertical">
+                <article class="tile is-child">
+                  <p class="title has-text-centered is-4">
+                    Che tipo di ascoltatore sei?
+                  </p>
+                  <p class="subtitle">
+                    WHATSTHEHIT fa comunque al caso vostro! La webapp che vi
+                    permette di viaggiare nel tempo e rivivere le canzoni che
+                    hanno segnato annualmente l'ultimo secolo della storia della
+                    musica! 
+                  </p>
+                  <p class="subtitle">
+                    Da Elvis agli U2, da Madonna ai Coldplay. Dai
+                    capolavori Rock alle nuove frontieri Hip-Hop, dal primo Rap
+                    a quello moderno la lista è veramente ampia e completa.
+                  </p>
+                </article>
+                <article class="tile is-child">
+                  <p class="title has-text-centered is-4">La</p>
+                  <p class="subtitle">
+                    Whatsthehit nasce inizialmente come progetto del corso di
+                    Laboratorio di Progettazione Web, ma ben presto si trasforma
+                    in una vera e propria applicazione web in grado di
+                    riprodurre le hit dell'ultimo secolo. Grazie alle varie
+                    interfacce sarai in grado di visualizzare e conoscere le
+                    informazioni relative a tutti gli artisti che hanno fatto la
+                    storia della musica.
+                  </p>
+                </article>
+              </div>
+              <div class="tile is-parent">
+                <article class="tile is-child">
+                  <p class="title title has-text-centered is-4">
+                    E se non bastassero le canzoni?
+                  </p>
+                  <p class="subtitle">
+                    Whatsthehit offre anche la possibilità di visualizzare le
+                    classifiche dei migliori album con le relative storie.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--<section id="searching" class="section has-background-grey-dark">
+      <h2 class="subtitle has-text-white has-text-centered is-size-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </h2>
+      <div class="container">
+        <div class="level">
+          <div id="cerca" class="level-item">
+            <div class="field has-addons">
+              <div class="control">
+                <input
+                  id="ricerca"
+                  class="input is-info"
+                  type="text"
+                  placeholder="Inserisci Artista"
+                />
+              </div>
+              <div class="control">
+                <a id="bottone" class="button is-info">
+                  Vai!
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="searching" class="section has-background-grey-dark">
+      <h2 class="subtitle has-text-white has-text-centered is-size-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </h2>
+      <div class="container">
+        <div class="level">
+          <div id="cerca" class="level-item">
+            <div class="field has-addons">
+              <div class="control">
+                <input
+                  id="ricerca"
+                  class="input is-info"
+                  type="number"
+                  min="1900"
+                  max="2016"
+                  placeholder="Inserisci Anno"
+                  style="width: 200px"
+                />
+              </div>
+              <div class="control">
+                <a id="bottone" class="button is-info">
+                  Vai!
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
     <div class="modal" id="modal">
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
-          <p class="modal-card-title">Modal title</p>
+          <p id="modalcard" class="modal-card-title">Modal title</p>
           <button class="delete toggle-modal"></button>
         </header>
         <section class="modal-card-body">
           <p id="modalContent">Contenuto di prova</p>
         </section>
         <footer class="modal-card-foot">
-          <a class="button is-success toggle-modal">Save changes</a>
-          <a class="button toggle-modal">Cancel</a>
+          <a id="genere" class="button is-dark toggle-modal">Genere</a>
         </footer>
       </div>
     </div>
 
-    <img class="thumbnail" src="img/wallpaper.png" alt="image" />
+    <!-- <img id="parallax" class="thumbnail" src="img/wallpaper.png" alt="image" /> -->
 
     <br />
 
-    <h1 class="level-item has-text-info is-size-3 has-text-centered">
-      Ricerca per Artista!
-    </h1>
-
-    <div class="level">
-      <div id="cerca" class="level-item">
-        <div class="field has-addons">
-          <div class="control">
-            <input
-              id="ricerca"
-              class="input is-info"
-              type="text"
-              placeholder="Inserisci Artista"
-            />
-          </div>
-          <div class="control">
-            <a id="bottone" class="button is-info">
-              Vai!
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer class="footer has-text-white is-size-7">
+    <!-- <footer class="footer has-text-white is-size-7">
       <div class="content has-text-centered">
         <p>
           WHATSTHEHIT una webapp di Martino Tagliente, Stefano Tambellini e
           Alessandra Paone. Copyright © 2019. Tutti i diritti riservati.
         </p>
       </div>
-    </footer>
+    </footer> -->
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>

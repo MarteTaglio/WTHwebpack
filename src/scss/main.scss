@@ -1,24 +1,14 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 // Set your brand colors
-$purple: #8a4d76;
-$pink: #fa7c91;
-$brown: #757763;
-$beige-light: #d0d1cd;
-$beige-lighter: #eff0eb;
 $info: #009986;
 $dark: #212121;
 
-
 // Update Bulma's global variables
-$family-sans-serif: 'Montserrat', sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
+$family-sans-serif: "Montserrat", sans-serif;
 $widescreen-enabled: true;
 $fullhd-enabled: true;
 
@@ -33,8 +23,8 @@ $footer-background-color: $dark;
 @import "~bulma/bulma";
 @import "~bulma-divider";
 
-.hero.is-medium{
-      height: 766px;
+.hero.is-medium {
+  height: 706px;
 }
 
 .hero.has-background {
@@ -48,4 +38,25 @@ $footer-background-color: $dark;
   width: 100%;
   height: 100%;
 }
+#barra{
+  padding-top: 10%;
+}
 
+#searching {
+  padding: 3rem 9rem;
+}
+
+.thumbnail{
+  padding: 3rem 0;
+}
+
+#why{
+  background-image: url(/img/rose.png);
+  height: 706px;
+  position: absolute;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
