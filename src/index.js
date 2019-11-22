@@ -11,6 +11,8 @@ import simpleParallax from "simple-parallax-js";
 
 // Importo un file javascript locale
 import generateList from "./js/generateList.js";
+import searchIta from "./js/searchIta.js";
+
 
 // ? se sei in locale occorre inserire URL intero con https
 // ? test di inserimento in whatsthehit
