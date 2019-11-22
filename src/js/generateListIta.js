@@ -1,5 +1,4 @@
 import axios from "axios";
-
 // Programmazione a oggetti
 //Definisco una classe che utilizzo dopo
 class Record {

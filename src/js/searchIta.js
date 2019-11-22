@@ -34,5 +34,3 @@ export default function searchIta() {
     });
 }
 
-var butIta = document.getElementById("bottoneIta");
-butIta.addEventListener("click", searchIta);

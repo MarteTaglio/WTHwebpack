@@ -68,6 +68,9 @@ function cerca() {
 var but = document.getElementById("bottone");
 but.addEventListener("click", cerca);
 
+var butIta = document.getElementById("bottoneIta");
+butIta.addEventListener("click", searchIta);
+
 //NAVBAR
 document.addEventListener("DOMContentLoaded", () => {
   // Get all "navbar-burger" elements
