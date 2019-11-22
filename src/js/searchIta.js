@@ -9,18 +9,17 @@ export default function searchIta() {
   var valueita = input.value;
   var search;
 
-    search = {
-      from: ["artisti_italia"],
-      select: ["titolo", "artista", "anno"],
-      orderby: "posizione",
-      desc: true,
-      limit: 30
-    };
+  search = {
+    from: ["artisti_italia"],
+    select: ["titolo", "artista", "anno"],
+    orderby: "posizione",
+    desc: true,
+    limit: 50
+  };
 
-    search.where = {
-      anno: valueita
-    };
-  } 
+  search.where = {
+    anno: valueita
+  };
 
   // faccio una richiesta ASINCRONA al server di whatsthehit
   axios
@@ -33,7 +32,7 @@ export default function searchIta() {
     .catch(function(error) {
       console.log(error);
     });
-
+}
 
 var butIta = document.getElementById("bottoneIta");
 butIta.addEventListener("click", searchIta);
