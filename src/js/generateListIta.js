@@ -1,4 +1,4 @@
-import axios from "axios";
+
 // Programmazione a oggetti
 //Definisco una classe che utilizzo dopo
 class Record {
@@ -11,10 +11,6 @@ class Record {
   render() {
     var list = document.getElementById("recordListIta");
 
-    // TODO migliore generazione dell'elemento
-    // ? classi di bulma ?
-    // jquery
-
     // Div esterno
     var ance = document.createElement("div");
     ance.setAttribute("class", "tile is-4 is-parent");
@@ -22,20 +18,21 @@ class Record {
     var box = document.createElement("article");
     box.setAttribute("class", "tile is-child box");
 
+    var pos = document.createElement("p");
+    pos.setAttribute("class", "title");
+    pos.innerText = this.settings.posizione;
+
     var h1 = document.createElement("h1");
-    h1.setAttribute("class", "title");
+    h1.setAttribute("class", "title has-text-info");
     h1.innerText = this.settings.titolo;
 
     var h2 = document.createElement("h2");
     h2.setAttribute("class", "subtitle");
     h2.innerText = this.settings.artista;
 
-    /* var g = document.createElement("p");
-    g.innerText = this.settings.genere; */
-
+    box.appendChild(pos);
     box.appendChild(h1);
     box.appendChild(h2);
-    /* box.appendChild(g); */
     ance.appendChild(box);
 
     ance.addEventListener("click", () => {
@@ -43,30 +40,16 @@ class Record {
 
       document.getElementById("modal").classList.toggle("is-active");
 
-      document.getElementById("modalcard").innerText = this.settings.h1;
+      document.getElementById("modalcard").innerText =
+        this.settings.posizione + " " + " - " + " " + this.settings.titolo;
 
       document.getElementById("modalContent").innerText = this.settings.artista;
 
-      axios
-        .get(
-          "https://whatsthehit.herokuapp.com/api/genre?name=" +
-            this.settings.artista
-        )
-        .then(response => {
-          this.settings.genere = response.data;
-          this.renderGenre(response.data);
-        })
-        .catch(error => {
-          console.log(error);
-        });
     });
 
     list.appendChild(ance);
   }
 
-  renderGenre(genre) {
-    document.getElementById("genere").innerText = genre;
-  }
 }
 
 // sintassi es2015 per far caricare una funzione quando si fa IMPORT di questo file

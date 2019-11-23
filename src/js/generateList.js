@@ -23,8 +23,12 @@ class Record {
     var box = document.createElement("article");
     box.setAttribute("class", "tile is-child box");
 
+    /*var pos = document.createElement("p");
+    pos.setAttribute("class", "title has-text-info");
+    pos.innerText = Number(1);*/
+
     var h1 = document.createElement("h1");
-    h1.setAttribute("class", "title");
+    h1.setAttribute("class", "title has-text-info");
     h1.innerText = this.settings.h1;
 
     var h2 = document.createElement("h2");
@@ -33,7 +37,7 @@ class Record {
 
     /* var g = document.createElement("p");
     g.innerText = this.settings.genere; */
-
+    //box.appendChild(pos);
     box.appendChild(h1);
     box.appendChild(h2);
     /* box.appendChild(g); */
@@ -82,25 +86,4 @@ export default function(jsonList) {
 
     recordArray.push(record);
   });
-
-  // TODO: ordina array di record
-
-  // per ogni record nella LISTA scorro e richiamo console.log sul record
-  /* recordArray.forEach(record => {
-    // sintassi es2015 per la creazione di una funzione anonima
-    console.log(record);
-
-    axios
-      .get(
-        "https://whatsthehit.herokuapp.com/api/genre?name=" +
-          record.settings.artista
-      )
-      .then(function(response) {
-        record.settings.genere = response.data;
-        record.render();
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }); */
 }

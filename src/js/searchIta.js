@@ -2,7 +2,7 @@
 
 import axios from "axios";
 
-//import generateList from "./generateList.js";
+import generateListIta from "./generateListIta.js";
 
 export default function searchIta() {
   var input = document.getElementById("ricita");
@@ -11,9 +11,9 @@ export default function searchIta() {
 
   search = {
     from: ["artisti_italia"],
-    select: ["titolo", "artista", "anno"],
+    select: ["titolo", "artista", "anno", "posizione"],
     orderby: "posizione",
-    desc: true,
+    desc: false,
     limit: 50
   };
 
@@ -26,7 +26,7 @@ export default function searchIta() {
     .post("https://whatsthehit.herokuapp.com/api/select", search)
     .then(function(response) {
       // UNA VOLTA CHE LA RICHIESTA è ANDATA A BUON FINE
-      //generateListIta(response.data);
+      generateListIta(response.data);
       console.log(response.data);
     })
     .catch(function(error) {

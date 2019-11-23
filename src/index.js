@@ -13,7 +13,6 @@ import simpleParallax from "simple-parallax-js";
 import generateList from "./js/generateList.js";
 import searchIta from "./js/searchIta.js";
 
-
 // ? se sei in locale occorre inserire URL intero con https
 // ? test di inserimento in whatsthehit
 // ? nella cartella WHATSTHEHIT /api/select
@@ -29,7 +28,7 @@ function cerca() {
     // la ricerca è in base alla canzone
     search = {
       from: ["canzone", "artista"],
-      select: ["titolo as h1", "nome as artista", "anno"],
+      select: ["titolo as h1", "nome as artista", "anno", "punteggio"],
       orderby: "punteggio",
       desc: true,
       limit: 50
@@ -39,10 +38,10 @@ function cerca() {
       anno: value
     };
   } else {
-    //... altrimenti in base all'artista
+    //... altrimenti in base all'album
     search = {
       from: ["album", "artista"],
-      select: ["titolo as h1", "nome as artista", "anno"],
+      select: ["titolo as h1", "nome as artista", "anno", "punteggio"],
       orderby: "punteggio",
       desc: true,
       limit: 50
