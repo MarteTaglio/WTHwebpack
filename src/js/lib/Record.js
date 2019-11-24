@@ -23,9 +23,9 @@ export default class Record {
     var box = document.createElement("article");
     box.setAttribute("class", "tile is-child box");
 
-    /*var pos = document.createElement("p");
-    pos.setAttribute("class", "title has-text-info");
-    pos.innerText = Number(1);*/
+    var pos = document.createElement("p");
+    pos.setAttribute("class", "title");
+    pos.innerText = this.settings.posizione;
 
     var h1 = document.createElement("h1");
     h1.setAttribute("class", "title has-text-info");
@@ -37,7 +37,7 @@ export default class Record {
 
     /* var g = document.createElement("p");
     g.innerText = this.settings.genere; */
-    //box.appendChild(pos);
+    box.appendChild(pos);
     box.appendChild(h1);
     box.appendChild(h2);
     /* box.appendChild(g); */
@@ -50,7 +50,7 @@ export default class Record {
 
       document.getElementById("modal").classList.toggle("is-active");
 
-      document.getElementById("modalcard").innerText = this.settings.h1;
+      document.getElementById("modalcard").innerText = this.settings.h1 + this.settings.posizione;
 
       document.getElementById("modalContent").innerText = this.settings.artista;
 

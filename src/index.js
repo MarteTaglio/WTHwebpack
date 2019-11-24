@@ -9,7 +9,7 @@ import "./scss/main.scss";
 import axios from "axios";
 import simpleParallax from "simple-parallax-js";
 
-import utils from "./js/utils.js"
+import utils from "./js/utils.js";
 import generateList from "./js/generateList.js";
 import searchIta from "./js/searchIta.js";
 
@@ -76,11 +76,7 @@ function cerca() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  function toggleClass() {
-    modal.classList.toggle("is-active");
-  }
-
+function setupBurgerMenu() {
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(
     document.querySelectorAll(".navbar-burger"),
@@ -102,11 +98,20 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+}
+
+/* var recordList = [];
+ */
+document.addEventListener("DOMContentLoaded", () => {
+  setupBurgerMenu();
 
   var modal = document.getElementById("modal");
-  var elements = document.getElementsByClassName("toggle-modal");
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].addEventListener("click", toggleClass);
+
+  var bottoniChiusuraModali = document.getElementsByClassName("toggle-modal");
+  for (var i = 0; i < bottoniChiusuraModali.length; i++) {
+    bottoniChiusuraModali[i].addEventListener("click", () => {
+      modal.classList.toggle("is-active");
+    });
   }
 
   var but = document.getElementById("bottone");
