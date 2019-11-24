@@ -1,7 +1,5 @@
 "use strict";
 
-//import axios from "axios";
-
 // Programmazione a oggetti
 //Definisco una classe che utilizzo dopo
 import Record from "./lib/Record";
