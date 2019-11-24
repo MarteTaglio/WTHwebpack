@@ -1,3 +1,5 @@
+"use strict";
+
 import axios from "axios";
 
 // Programmazione a oggetti
@@ -46,6 +48,8 @@ class Record {
     ance.addEventListener("click", () => {
       console.log(this.settings);
 
+      document.getElementById("genere").classList.add("is-loading");
+
       document.getElementById("modal").classList.toggle("is-active");
 
       document.getElementById("modalcard").innerText = this.settings.h1;
@@ -70,6 +74,7 @@ class Record {
   }
 
   renderGenre(genre) {
+    document.getElementById("genere").classList.remove("is-loading");
     document.getElementById("genere").innerText = genre;
   }
 }

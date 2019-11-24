@@ -1,3 +1,4 @@
+"use strict";
 
 // Programmazione a oggetti
 //Definisco una classe che utilizzo dopo

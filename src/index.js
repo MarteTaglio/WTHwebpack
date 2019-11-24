@@ -13,10 +13,6 @@ import simpleParallax from "simple-parallax-js";
 import generateList from "./js/generateList.js";
 import searchIta from "./js/searchIta.js";
 
-// ? se sei in locale occorre inserire URL intero con https
-// ? test di inserimento in whatsthehit
-// ? nella cartella WHATSTHEHIT /api/select
-
 function cerca() {
   var inp = document.getElementById("ricerca");
   var value = inp.value;
@@ -64,14 +60,11 @@ function cerca() {
     });
 }
 
-var but = document.getElementById("bottone");
-but.addEventListener("click", cerca);
-
-var butIta = document.getElementById("bottoneIta");
-butIta.addEventListener("click", searchIta);
-
-//NAVBAR
 document.addEventListener("DOMContentLoaded", () => {
+  function toggleClass() {
+    modal.classList.toggle("is-active");
+  }
+
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(
     document.querySelectorAll(".navbar-burger"),
@@ -93,20 +86,28 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-});
 
-var modal = document.getElementById("modal");
-var elements = document.getElementsByClassName("toggle-modal");
-for (var i = 0; i < elements.length; i++) {
-  elements[i].addEventListener("click", toggleClass);
-}
+  var modal = document.getElementById("modal");
+  var elements = document.getElementsByClassName("toggle-modal");
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].addEventListener("click", toggleClass);
+  }
 
-function toggleClass() {
-  modal.classList.toggle("is-active");
-}
+  var but = document.getElementById("bottone");
+  but.addEventListener("click", cerca);
 
-//Parallax effect code
-var image = document.getElementsByClassName("thumbnail");
-new simpleParallax(image, {
-  scale: 1.4
+  document.getElementById("ricerca").addEventListener("keypress", e => {
+    if (e.keyCode == 13) {
+      cerca();
+    }
+  });
+
+  var butIta = document.getElementById("bottoneIta");
+  butIta.addEventListener("click", searchIta);
+
+  //Parallax effect code
+  var image = document.getElementsByClassName("thumbnail");
+  new simpleParallax(image, {
+    scale: 1.4
+  });
 });
