@@ -31,11 +31,11 @@ function cerca() {
   var option = document.getElementById("song");
 
   if (value < 1900 || value > 2016) {
-    if (value == 1900) {
+    /* if (value == 1900) {
       document.classList
     } else if (value == 2016) {
   
-    }
+    } */
 
     utils.setInputError(inp, inpDiv, "Messaggio di errore");
   } else {
