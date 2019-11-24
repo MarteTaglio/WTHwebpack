@@ -9,7 +9,7 @@ import "./scss/main.scss";
 import axios from "axios";
 import simpleParallax from "simple-parallax-js";
 
-// Importo un file javascript locale
+import utils from "./js/utils.js"
 import generateList from "./js/generateList.js";
 import searchIta from "./js/searchIta.js";
 
@@ -17,43 +17,11 @@ function WTHSearch(json) {
   axios
     .post("https://whatsthehit.herokuapp.com/api/select", json)
     .then(function(response) {
-      // UNA VOLTA CHE LA RICHIESTA è ANDATA A BUON FINE
       generateList(response.data);
     })
     .catch(function(error) {
       console.log(error);
     });
-}
-
-function setInputError(input, inputDiv, messaggio) {
-  var inp = input;
-  var inpDiv = inputDiv;
-  var mess = messaggio;
-
-  if (!inp.classList.contains("is-danger")) {
-    inp.classList.add("is-danger");
-
-    var newP = document.createElement("p");
-    newP.innerText = mess;
-
-    newP.classList.add("wth_danger_text");
-    newP.classList.add("has-text-danger");
-    newP.classList.add("has-text-centered");
-
-    inpDiv.insertAdjacentElement("afterend", newP);
-  }
-}
-
-function removeInputError(input, inputDiv) {
-  var inp = input;
-  var inpDivParent = inputDiv.parentNode;
-
-  if (inp.classList.contains("is-danger")) {
-    inp.classList.remove("is-danger");
-
-    var error = inpDivParent.querySelector(".wth_danger_text");
-    error.remove();
-  }
 }
 
 function cerca() {
@@ -63,15 +31,15 @@ function cerca() {
   var option = document.getElementById("song");
 
   if (value < 1900 || value > 2016) {
-    /* if (value == 1900) {
+    if (value == 1900) {
       document.classList
     } else if (value == 2016) {
   
-    } */
+    }
 
-    setInputError(inp, inpDiv, "Messaggio di errore");
+    utils.setInputError(inp, inpDiv, "Messaggio di errore");
   } else {
-    removeInputError(inp, inpDiv);
+    utils.removeInputError(inp, inpDiv);
 
     var search;
 
