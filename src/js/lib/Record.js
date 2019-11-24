@@ -1,4 +1,5 @@
 import axios from "axios";
+import searchYouTube from "youtube-api-search";
 
 export default class Record {
   // richiamata quando viene definito nuovo  record con NEW
@@ -64,11 +65,25 @@ export default class Record {
         .catch(error => {
           console.log(error);
         });
+
+        this.renderYT();
     });
 
     list.appendChild(ance);
   }
 
+ renderYT (){
+   const API_KEY = "AIzaSyCIg1kM6x9ISrl_fXtlq6e0ayrqVFJHGt8";
+
+   searchYouTube({ key: API_KEY, term: this.settings.h1, maxResults: 1 }, 
+    videos => {
+     console.log(videos);
+     var iframe = document.getElementById("searchYTchart");
+     iframe.src = "https://www.youtube.com/embed/" + videos[0].id.videoId;
+   });
+
+
+ }
   renderGenre(genre) {
     document.getElementById("genere").classList.remove("is-loading");
     document.getElementById("genere").innerText = genre;
