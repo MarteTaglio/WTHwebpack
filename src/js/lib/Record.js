@@ -1,5 +1,6 @@
 import axios from "axios";
 import searchYouTube from "youtube-api-search";
+import wiki from "wikijs";
 
 export default class Record {
   // richiamata quando viene definito nuovo  record con NEW
@@ -66,24 +67,38 @@ export default class Record {
           console.log(error);
         });
 
-        this.renderYT();
+      this.renderYT();
+      this.renderWiki();
     });
 
     list.appendChild(ance);
   }
 
- renderYT (){
-   const API_KEY = "AIzaSyCIg1kM6x9ISrl_fXtlq6e0ayrqVFJHGt8";
+  renderYT() {
+    const API_KEY = "AIzaSyCIg1kM6x9ISrl_fXtlq6e0ayrqVFJHGt8";
 
-   searchYouTube({ key: API_KEY, term: this.settings.h1, maxResults: 1 }, 
-    videos => {
-     console.log(videos);
-     var iframe = document.getElementById("searchYTchart");
-     iframe.src = "https://www.youtube.com/embed/" + videos[0].id.videoId;
-   });
+    searchYouTube(
+      { key: API_KEY, term: this.settings.h1, maxResults: 1 },
+      videos => {
+        console.log(videos);
+        var iframe = document.getElementById("searchYTchart");
+        iframe.src = "https://www.youtube.com/embed/" + videos[0].id.videoId;
+      }
+    );
+  }
 
+  renderWiki() {
+    wiki({ apiUrl: "https://it.wikipedia.org/w/api.php" })
+      .page(this.settings.artista)
+      .then(page => {
+        console.log(page);
+        return page.summary();
+      })
+      .then(summary => {
+        console.log(summary);
+      });
+  }
 
- }
   renderGenre(genre) {
     document.getElementById("genere").classList.remove("is-loading");
     document.getElementById("genere").innerText = genre;
