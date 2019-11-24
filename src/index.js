@@ -13,44 +13,9 @@ import simpleParallax from "simple-parallax-js";
 import generateList from "./js/generateList.js";
 import searchIta from "./js/searchIta.js";
 
-function cerca() {
-  var inp = document.getElementById("ricerca");
-  var value = inp.value;
-  var search;
-  var option = document.getElementById("song");
-
-  // se l'option è checked
-  if (option.checked) {
-    // la ricerca è in base alla canzone
-    search = {
-      from: ["canzone", "artista"],
-      select: ["titolo as h1", "nome as artista", "anno", "punteggio"],
-      orderby: "punteggio",
-      desc: true,
-      limit: 50
-    };
-
-    search.where = {
-      anno: value
-    };
-  } else {
-    //... altrimenti in base all'album
-    search = {
-      from: ["album", "artista"],
-      select: ["titolo as h1", "nome as artista", "anno", "punteggio"],
-      orderby: "punteggio",
-      desc: true,
-      limit: 50
-    };
-
-    search.where = {
-      anno: value
-    };
-  }
-
-  // faccio una richiesta ASINCRONA al server di whatsthehit
+function WTHSearch(json) {
   axios
-    .post("https://whatsthehit.herokuapp.com/api/select", search)
+    .post("https://whatsthehit.herokuapp.com/api/select", json)
     .then(function(response) {
       // UNA VOLTA CHE LA RICHIESTA è ANDATA A BUON FINE
       generateList(response.data);
@@ -58,6 +23,89 @@ function cerca() {
     .catch(function(error) {
       console.log(error);
     });
+}
+
+function setInputError(input, inputDiv, messaggio) {
+  var inp = input;
+  var inpDiv = inputDiv;
+  var mess = messaggio;
+
+  if (!inp.classList.contains("is-danger")) {
+    inp.classList.add("is-danger");
+
+    var newP = document.createElement("p");
+    newP.innerText = mess;
+
+    newP.classList.add("wth_danger_text");
+    newP.classList.add("has-text-danger");
+    newP.classList.add("has-text-centered");
+
+    inpDiv.insertAdjacentElement("afterend", newP);
+  }
+}
+
+function removeInputError(input, inputDiv) {
+  var inp = input;
+  var inpDivParent = inputDiv.parentNode;
+
+  if (inp.classList.contains("is-danger")) {
+    inp.classList.remove("is-danger");
+
+    var error = inpDivParent.querySelector(".wth_danger_text");
+    error.remove();
+  }
+}
+
+function cerca() {
+  var inpDiv = document.getElementById("cerca");
+  var inp = document.getElementById("ricerca");
+  var value = inp.value;
+  var option = document.getElementById("song");
+
+  if (value < 1900 || value > 2016) {
+    /* if (value == 1900) {
+      document.classList
+    } else if (value == 2016) {
+  
+    } */
+
+    setInputError(inp, inpDiv, "Messaggio di errore");
+  } else {
+    removeInputError(inp, inpDiv);
+
+    var search;
+
+    // se l'option è checked
+    if (option.checked) {
+      // la ricerca è in base alla canzone
+      search = {
+        from: ["canzone", "artista"],
+        select: ["titolo as h1", "nome as artista", "anno", "punteggio"],
+        orderby: "punteggio",
+        desc: true,
+        limit: 50
+      };
+
+      search.where = {
+        anno: value
+      };
+    } else {
+      //... altrimenti in base all'album
+      search = {
+        from: ["album", "artista"],
+        select: ["titolo as h1", "nome as artista", "anno", "punteggio"],
+        orderby: "punteggio",
+        desc: true,
+        limit: 50
+      };
+
+      search.where = {
+        anno: value
+      };
+    }
+
+    WTHSearch(search);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
