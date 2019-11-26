@@ -10,7 +10,7 @@ export default class Record {
 
   // METODO render
   render() {
-    var list = document.getElementById("recordList");
+    var list = document.getElementById("recordListArt");
 
     // TODO migliore generazione dell'elemento
     // ? classi di bulma ?
@@ -50,12 +50,11 @@ export default class Record {
 
       document.getElementById("modal").classList.toggle("is-active");
 
-      document.getElementById(
-        "modalcard"
-      ).innerText = this.settings.posizione + " - " + this.settings.h1;
+      document.getElementById("modalcard").innerText =
+        this.settings.posizione + " - " + this.settings.h1;
 
       this.renderYT();
-      
+
       this.renderWiki();
 
       axios
@@ -70,8 +69,6 @@ export default class Record {
         .catch(error => {
           console.log(error);
         });
-
-      
     });
 
     list.appendChild(ance);
@@ -100,7 +97,6 @@ export default class Record {
       .then(summary => {
         document.getElementById("modalContent").innerText = summary;
       });
-      
   }
 
   renderGenre(genre) {

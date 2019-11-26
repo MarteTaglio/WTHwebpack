@@ -40,10 +40,6 @@
             Home
           </a>
 
-          <a class="navbar-item" href="#why">
-            Utilizzo
-          </a>
-
           <a class="navbar-item" href="#artist">
             Ricerca per Artista!
           </a>
@@ -58,10 +54,10 @@
             </a>
 
             <div class="navbar-dropdown">
-              <a class="navbar-item">
+              <a class="navbar-item" href="#why">
                 Utilizzo
               </a>
-              <a class="navbar-item">
+              <a class="navbar-item" href="#ft">
                 Chi siamo
               </a>
             </div>
@@ -71,9 +67,14 @@
     </nav>
 
     <section class="hero is-medium is-bold">
-      <img id="backimg" class="hero-background" src="/img/bak.png" />
       <div class="hero-body">
         <div id="barra" class="container">
+          <p class="subtitle has-text-grey-dark has-text-centered is-size-6">
+            Inserisci nella barra qui sotto un anno compreso tra il 1900 e il
+            2016
+            <br />
+            e poi premi invio o su Vai! e vedi subito i risultati!
+          </p>
           <div id="cerca" class="level-item">
             <div id="searchInputDiv" class="wth_input field has-addons">
               <div class="control">
@@ -129,10 +130,10 @@
           <button class="delete toggle-modal"></button>
         </header>
         <section class="modal-card-body">
-          <p id="modalContent">Contenuto di prova</p>
-          <iframe id="searchYTchart" frameborder="0" allowfullscreen>
-
-          </iframe>
+          <div class="iframe-container">
+            <iframe id="searchYTchart" allowfullscreen> </iframe>
+          </div>
+          <p id="modalContent">Informazioni Artista</p>
         </section>
         <footer class="modal-card-foot">
           <a id="genere" class="button is-dark is-loading">Genere</a>
@@ -140,76 +141,11 @@
       </div>
     </div>
 
-    <section id="why" class="section">
-      <div class="container">
-        <h1 class="title is-2 has-text-centered has-text-white">
-          Perchè WHATSTHEHIT?
-        </h1>
-        <div id="tile">
-          <div class="tile is-ancestor">
-            <div class="tile is-vertical is-8">
-              <div class="tile">
-                <div class="tile is-parent is-vertical">
-                  <article class="tile is-child">
-                    <p class="title has-text-centered is-4">
-                      Che tipo di ascoltatore sei?
-                    </p>
-                    <p class="subtitle">
-                      WHATSTHEHIT è sempre adatta a te! La webapp che ti
-                      permette di viaggiare nel tempo e rivivere le canzoni che
-                      hanno segnato annualmente l'ultimo secolo della storia
-                      della musica!
-                    </p>
-                    <p class="subtitle">
-                      Da Elvis agli U2, da Madonna ai Coldplay. Dai capolavori
-                      Rock alle nuove frontieri Hip-Hop, dal primo Rapper a
-                      quelli moderni la lista è veramente ampia e completa.
-                    </p>
-                  </article>
-                  <article class="tile is-child">
-                    <p class="title has-text-centered is-4">La scoperta</p>
-                    <p class="subtitle">
-                      Whatsthehit nasce inizialmente come progetto del corso di
-                      Laboratorio di Progettazione Web dell'Università di Pisa,
-                      ma ben presto si trasforma in una vera e propria
-                      applicazione web che ti permette di scoprire l'evoluzione
-                      e il cambiamento della musica negli anni.
-                    </p>
-                  </article>
-                </div>
-                <div class="tile is-parent">
-                  <article class="tile is-child">
-                    <p class="title title has-text-centered is-4">
-                      E se non bastassero le canzoni?
-                    </p>
-                    <p class="subtitle">
-                      Grazie alle varie interfacce sarai in grado di
-                      visualizzare e conoscere le informazioni relative a tutti
-                      gli artisti che hanno fatto la storia della musica.
-                      Whatsthehit offre anche la possibilità di visualizzare le
-                      classifiche dei migliori album con le relative storie.
-                    </p>
-                    <p class="title title has-text-centered is-4">
-                      Come si usa?
-                    </p>
-                    <p class="subtitle">
-                      Ricercare la tua canzone è semplicissimo, basta inserire
-                      l'anno che ti interessa, sempre compreso tra il 1900 e
-                      2016, nella barra testuale qui sopra. Sarai reindirizzato
-                      alla classifica dell'anno e potrai selezionare la tua
-                      canzone preferita, attraverso un'interfaccia jukebox, con
-                      un semplice click. Oltre la possibilità di avere
-                      informazioni sull'artista o sull'album, avrai l'occasione
-                      di ascoltare la tua canzone.
-                    </p>
-                  </article>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div id="rnd" class="container">
+      <div id="random" class="tile is-ancestor"></div>
+    </div>
 
+    <section class="section">
       <div id="artist" class="container">
         <h1 class="title has-text-info has-text-centered is-size-4">
           Ricerca per artista
@@ -226,24 +162,31 @@
           meraviglie che esse ti riservano
         </p>
         <div class="level">
-          <div id="cerca" class="level-item">
+          <div id="cercartista" class="level-item">
             <div class="field has-addons">
               <div class="control">
                 <input
-                  id="ricerca"
+                  id="artist"
                   class="input is-info"
                   type="text"
                   placeholder="Inserisci Artista"
                 />
               </div>
               <div class="control">
-                <a id="bottone" class="button is-info">
+                <a id="botArt" class="button is-info">
                   Vai!
                 </a>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="container">
+        <div
+          id="recordListArt"
+          class="tile is-ancestor"
+          style="flex-wrap: wrap;"
+        ></div>
       </div>
       <br />
       <img
@@ -267,8 +210,12 @@
         <p class="subtitle has-text-white has-text-centered is-size-6">
           Ricerca e scopri le hit, che negli anni, hanno spopolato in Italia!
         </p>
+        <p class="subtitle has-text-grey-dark has-text-centered is-size-6">
+          Inserisci nella barra qui sotto un anno compreso tra il 1947 e il 2016
+          e poi premi invio o su Vai! e vedi subito i risultati!
+        </p>
         <div class="level">
-          <div id="cerca" class="level-item">
+          <div id="cercaita" class="level-item">
             <div class="field has-addons">
               <div class="control">
                 <input
@@ -297,7 +244,77 @@
           style="flex-wrap: wrap;"
         ></div>
       </div>
-      <footer class="footer has-text-white is-size-7">
+    </section>
+
+    <section id="why" class="section">
+      <h1 class="title is-2 has-text-centered has-text-dark">
+        Perchè WHATSTHEHIT?
+      </h1>
+      <div id="tile">
+        <div class="tile is-ancestor">
+          <div class="tile is-vertical is-8">
+            <div class="tile">
+              <div class="tile is-parent is-vertical">
+                <article class="tile is-child">
+                  <p class="title has-text-centered is-4">
+                    Che tipo di ascoltatore sei?
+                  </p>
+                  <p class="subtitle has-text-white">
+                    WHATSTHEHIT è sempre adatta a te! La webapp che ti permette
+                    di viaggiare nel tempo e rivivere le canzoni che hanno
+                    segnato annualmente l'ultimo secolo della storia della
+                    musica!
+                  </p>
+                  <p class="subtitle has-text-white">
+                    Da Elvis agli U2, da Madonna ai Coldplay. Dai capolavori
+                    Rock alle nuove frontieri Hip-Hop, dal primo Rapper a quelli
+                    moderni la lista è veramente ampia e completa.
+                  </p>
+                </article>
+                <article class="tile is-child">
+                  <p class="title has-text-centered is-4">La scoperta</p>
+                  <p class="subtitle has-text-white">
+                    Whatsthehit nasce inizialmente come progetto del corso di
+                    Laboratorio di Progettazione Web dell'Università di Pisa, ma
+                    ben presto si trasforma in una vera e propria applicazione
+                    web che ti permette di scoprire l'evoluzione e il
+                    cambiamento della musica negli anni.
+                  </p>
+                </article>
+              </div>
+              <div class="tile is-parent">
+                <article class="tile is-child">
+                  <p class="title title has-text-centered is-4">
+                    E se non bastassero le canzoni?
+                  </p>
+                  <p class="subtitle has-text-white">
+                    Grazie alle varie interfacce sarai in grado di visualizzare
+                    e conoscere le informazioni relative a tutti gli artisti che
+                    hanno fatto la storia della musica. Whatsthehit offre anche
+                    la possibilità di visualizzare le classifiche dei migliori
+                    album con le relative storie.
+                  </p>
+                  <p class="title title has-text-centered is-4">
+                    Come si usa?
+                  </p>
+                  <p class="subtitle has-text-white">
+                    Ricercare la tua canzone è semplicissimo, basta inserire
+                    l'anno che ti interessa, sempre compreso tra il 1900 e 2016,
+                    nelle barra testuale qui sopra. Sarai reindirizzato alla
+                    classifica dell'anno e potrai selezionare la tua canzone
+                    preferita, attraverso un'interfaccia jukebox, con un
+                    semplice click. Oltre la possibilità di avere informazioni
+                    sull'artista o sull'album, avrai l'occasione di ascoltare la
+                    tua canzone.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer id="ft" class="footer has-text-white is-size-7">
         <div class="content has-text-centered">
           <p>
             WHATSTHEHIT una webapp di Martino Tagliente, Stefano Tambellini e

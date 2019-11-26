@@ -12,6 +12,8 @@ import simpleParallax from "simple-parallax-js";
 import utils from "./js/utils.js";
 import generateList from "./js/generateList.js";
 import searchIta from "./js/searchIta.js";
+import searchArt from "./js/artist.js";
+import generateRandom from "./js/generateRandom.js";
 
 function WTHSearch(json) {
   axios
@@ -29,6 +31,7 @@ function cerca() {
   var inp = document.getElementById("ricerca");
   var value = inp.value;
   var option = document.getElementById("song");
+  var but = document.getElementById("bottone");
 
   if (value < 1900 || value > 2016) {
     /* if (value == 1900) {
@@ -37,9 +40,9 @@ function cerca() {
   
     } */
 
-    utils.setInputError(inp, inpDiv, "Messaggio di errore");
+    utils.setInputError(inp, inpDiv, but, "Inserisci un anno corretto");
   } else {
-    utils.removeInputError(inp, inpDiv);
+    utils.removeInputError(inp, inpDiv, but);
 
     var search;
 
@@ -75,6 +78,30 @@ function cerca() {
     WTHSearch(search);
   }
 }
+
+function random (){
+var search;
+      search = {
+        from: ["canzone", "artista"],
+        select: ["titolo as h1", "nome as artista", "anno"],
+        orderby: "rand",
+        desc: true,
+        limit: 1
+      };
+      // faccio una richiesta ASINCRONA al server di whatsthehit
+    axios
+      .post("https://whatsthehit.herokuapp.com/api/select", search)
+      .then(function(response) {
+        // UNA VOLTA CHE LA RICHIESTA è ANDATA A BUON FINE
+        generateRandom(response.data);
+        console.log(response.data);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
+
+random();
 
 function setupBurgerMenu() {
   // Get all "navbar-burger" elements
@@ -114,17 +141,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  //ricerca anni bottone
   var but = document.getElementById("bottone");
   but.addEventListener("click", cerca);
-
+  //ricerca anni invio
   document.getElementById("ricerca").addEventListener("keypress", e => {
     if (e.keyCode == 13) {
       cerca();
     }
   });
+  
+  //ricerca artista bottone
+  var butArt = document.getElementById("botArt");
+  butArt.addEventListener("click", searchArt);
+  //ricerca artista invio
+  document.getElementById("artist").addEventListener("keypress", e => {
+    if (e.keyCode == 13) {
+      searchArt();
+    }
+  });
 
+  //ricerca italia bottone
   var butIta = document.getElementById("bottoneIta");
   butIta.addEventListener("click", searchIta);
+  //ricerca italia invio
+  document.getElementById("ricita").addEventListener("keypress", e => {
+    if (e.keyCode == 13) {
+      searchIta();
+    }
+  });
 
   //Parallax effect code
   var image = document.getElementsByClassName("thumbnail");

@@ -3,10 +3,26 @@
 import axios from "axios";
 
 import generateListIta from "./generateListIta.js";
+import utils from "./utils.js";
 
 export default function searchIta() {
-  var input = document.getElementById("ricita");
-  var valueita = input.value;
+  var inpDiv = document.getElementById("cercaita");
+  var inp = document.getElementById("ricita");
+  var but = document.getElementById("bottoneIta");
+  var value = inp.value;
+
+
+  if (value < 1947 || value > 2016) {
+    /* if (value == 1900) {
+      document.classList
+    } else if (value == 2016) {
+  
+    } */
+
+    utils.setInputError(inp, inpDiv, but, "Inserisci un anno corretto");
+  } else {
+    utils.removeInputError(inp, inpDiv, but);
+
   var search;
 
   search = {
@@ -18,7 +34,7 @@ export default function searchIta() {
   };
 
   search.where = {
-    anno: valueita
+    anno: value
   };
 
   // faccio una richiesta ASINCRONA al server di whatsthehit
@@ -34,3 +50,4 @@ export default function searchIta() {
     });
 }
 
+}
