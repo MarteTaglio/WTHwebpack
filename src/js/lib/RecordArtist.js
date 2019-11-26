@@ -25,7 +25,7 @@ export default class Record {
 
     var pos = document.createElement("p");
     pos.setAttribute("class", "title");
-    pos.innerText = this.settings.posizione;
+    pos.innerText = this.settings.posizione + " - " + this.settings.anno;
 
     var h1 = document.createElement("h2");
     h1.setAttribute("class", "title is-4 has-text-info");
@@ -33,7 +33,7 @@ export default class Record {
 
     var h2 = document.createElement("h3");
     h2.setAttribute("class", "subtitle");
-    h2.innerText = this.settings.artista;
+    h2.innerText = this.settings.nome;
 
     /* var g = document.createElement("p");
     g.innerText = this.settings.genere; */
