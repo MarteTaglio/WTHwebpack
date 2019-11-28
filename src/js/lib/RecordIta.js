@@ -37,7 +37,7 @@ export default class RecordIta extends Record {
       document.getElementById("modal").classList.toggle("is-active");
 
       document.getElementById("modalcard").innerText =
-        this.settings.posizione + " - " + this.settings.artista;
+        this.settings.posizione + " - " + this.settings.titolo;
 
       this.renderYT();
 

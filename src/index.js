@@ -7,7 +7,6 @@ import "./scss/main.scss";
 
 // Import axios per la chiamata al server whatsthehit
 import axios from "axios";
-import simpleParallax from "simple-parallax-js";
 
 import utils from "./js/utils.js";
 import generateList from "./js/generateList.js";
@@ -169,11 +168,5 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.keyCode == 13) {
       searchIta();
     }
-  });
-
-  //Parallax effect code
-  var image = document.getElementsByClassName("thumbnail");
-  new simpleParallax(image, {
-    scale: 1.4
   });
 });
