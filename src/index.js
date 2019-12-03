@@ -14,6 +14,37 @@ import searchIta from "./js/searchIta.js";
 import searchArt from "./js/artist.js";
 import generateRandom from "./js/generateRandom.js";
 
+var artisti;
+var artistiItalia;
+
+axios
+  .post("https://whatsthehit.herokuapp.com/api/select", {
+    from: ["artista"],
+    select: ["nome as artista"]
+  })
+  .then(response => {
+    artisti = response.data;
+
+    axios
+      .post("https://whatsthehit.herokuapp.com/api/select", {
+        from: ["artisti_italia"],
+        select: ["artista"]
+      })
+      .then(response => {
+        artistiItalia = response.data;
+
+        global.artistiTot = artisti.concat(artistiItalia).map(item => {
+          return item.artista;
+        });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
+
 function WTHSearch(json) {
   axios
     .post("https://whatsthehit.herokuapp.com/api/select", json)
@@ -78,27 +109,27 @@ function cerca() {
   }
 }
 
-function random (){
-var search;
-      search = {
-        from: ["canzone", "artista"],
-        select: ["titolo as h1", "nome as artista", "anno"],
-        orderby: "rand",
-        desc: true,
-        limit: 1
-      };
-      // faccio una richiesta ASINCRONA al server di whatsthehit
-    axios
-      .post("https://whatsthehit.herokuapp.com/api/select", search)
-      .then(function(response) {
-        // UNA VOLTA CHE LA RICHIESTA è ANDATA A BUON FINE
-        generateRandom(response.data);
-        console.log(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }
+function random() {
+  var search;
+  search = {
+    from: ["canzone", "artista"],
+    select: ["titolo as h1", "nome as artista", "anno"],
+    orderby: "rand",
+    desc: true,
+    limit: 1
+  };
+  // faccio una richiesta ASINCRONA al server di whatsthehit
+  axios
+    .post("https://whatsthehit.herokuapp.com/api/select", search)
+    .then(function(response) {
+      // UNA VOLTA CHE LA RICHIESTA è ANDATA A BUON FINE
+      generateRandom(response.data);
+      console.log(response.data);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
 
 random();
 
@@ -149,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cerca();
     }
   });
-  
+
   //ricerca artista bottone
   var butArt = document.getElementById("botArt");
   butArt.addEventListener("click", searchArt);

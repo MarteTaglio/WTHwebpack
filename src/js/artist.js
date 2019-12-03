@@ -5,6 +5,7 @@ import axios from "axios";
 import generateListArtist from "./generateListArtist.js";
 
 export default function searchArt() {
+
   var inp = document.getElementById("artist");
   var value = inp.value;
 
@@ -24,7 +25,7 @@ export default function searchArt() {
 
   // faccio una richiesta ASINCRONA al server di whatsthehit
   axios
-    .get("https://whatsthehit.herokuapp.com/api/select", search)
+    .post("https://whatsthehit.herokuapp.com/api/select", search)
     .then(function(response) {
       // UNA VOLTA CHE LA RICHIESTA è ANDATA A BUON FINE
       generateListArtist(response.data);

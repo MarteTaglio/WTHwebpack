@@ -35,12 +35,10 @@ export default class Record {
     h2.setAttribute("class", "subtitle");
     h2.innerText = this.settings.nome;
 
-    /* var g = document.createElement("p");
-    g.innerText = this.settings.genere; */
     box.appendChild(pos);
     box.appendChild(h1);
     box.appendChild(h2);
-    /* box.appendChild(g); */
+
     ance.appendChild(box);
 
     ance.addEventListener("click", () => {
@@ -60,7 +58,7 @@ export default class Record {
       axios
         .get(
           "https://whatsthehit.herokuapp.com/api/genre?name=" +
-            this.settings.artista
+            this.settings.nome  
         )
         .then(response => {
           this.settings.genere = response.data;
@@ -78,7 +76,7 @@ export default class Record {
     const API_KEY = "AIzaSyCIg1kM6x9ISrl_fXtlq6e0ayrqVFJHGt8";
 
     searchYouTube(
-      { key: API_KEY, term: this.settings.h1 + this.settings.artista, maxResults: 1 },
+      { key: API_KEY, term: this.settings.h1 + this.settings.nome, maxResults: 1 },
       videos => {
         console.log(videos);
         var iframe = document.getElementById("searchYTchart");
@@ -89,7 +87,7 @@ export default class Record {
 
   renderWiki() {
     wiki({ apiUrl: "https://it.wikipedia.org/w/api.php" })
-      .page(this.settings.artista)
+      .page(this.settings.nome)
       .then(page => {
         console.log(page);
         return page.summary();
