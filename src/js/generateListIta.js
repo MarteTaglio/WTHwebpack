@@ -8,7 +8,7 @@ import Record from "./lib/RecordIta"
 export default function(jsonList) {
   document.getElementById("recordListIta").innerText = "";
   jsonList.forEach(function(recordSettings) {
-    // per ogni record creo un nuvoo oggetto recordo che aggiungo all'array dichiarato prima
+    // per ogni record creo un nuovo oggetto recordo che aggiungo all'array dichiarato prima
     var record = new Record(recordSettings);
     record.render();
   });

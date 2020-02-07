@@ -12,10 +12,6 @@ export default class Record {
   render() {
     var list = document.getElementById("recordList");
 
-    // TODO migliore generazione dell'elemento
-    // ? classi di bulma ?
-    // jquery
-
     // Div esterno
     var ance = document.createElement("div");
     ance.setAttribute("class", "tile is-3 is-parent");
@@ -35,12 +31,9 @@ export default class Record {
     h2.setAttribute("class", "subtitle");
     h2.innerText = this.settings.artista;
 
-    /* var g = document.createElement("p");
-    g.innerText = this.settings.genere; */
     box.appendChild(pos);
     box.appendChild(h1);
     box.appendChild(h2);
-    /* box.appendChild(g); */
     ance.appendChild(box);
 
     ance.addEventListener("click", () => {

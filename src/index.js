@@ -14,36 +14,6 @@ import searchIta from "./js/searchIta.js";
 import searchArt from "./js/artist.js";
 import generateRandom from "./js/generateRandom.js";
 
-var artisti;
-var artistiItalia;
-
-axios
-  .post("https://whatsthehit.herokuapp.com/api/select", {
-    from: ["artista"],
-    select: ["nome as artista"]
-  })
-  .then(response => {
-    artisti = response.data;
-
-    axios
-      .post("https://whatsthehit.herokuapp.com/api/select", {
-        from: ["artisti_italia"],
-        select: ["artista"]
-      })
-      .then(response => {
-        artistiItalia = response.data;
-
-        global.artistiTot = artisti.concat(artistiItalia).map(item => {
-          return item.artista;
-        });
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  })
-  .catch(function(error) {
-    console.log(error);
-  });
 
 function WTHSearch(json) {
   axios
@@ -157,8 +127,6 @@ function setupBurgerMenu() {
   }
 }
 
-/* var recordList = [];
- */
 document.addEventListener("DOMContentLoaded", () => {
   setupBurgerMenu();
 

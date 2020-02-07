@@ -12,20 +12,16 @@ export default class Record {
   render() {
     var list = document.getElementById("recordListArt");
 
-    // TODO migliore generazione dell'elemento
-    // ? classi di bulma ?
-    // jquery
-
     // Div esterno
     var ance = document.createElement("div");
-    ance.setAttribute("class", "tile is-3 is-parent");
+    ance.setAttribute("class", "tile is-6 is-parent");
 
     var box = document.createElement("article");
     box.setAttribute("class", "tile is-child box");
 
     var pos = document.createElement("p");
     pos.setAttribute("class", "title");
-    pos.innerText = this.settings.posizione + " - " + this.settings.anno;
+    pos.innerText = this.settings.posizione;
 
     var h1 = document.createElement("h2");
     h1.setAttribute("class", "title is-4 has-text-info");
@@ -35,9 +31,14 @@ export default class Record {
     h2.setAttribute("class", "subtitle");
     h2.innerText = this.settings.nome;
 
+    var h3 = document.createElement("h3");
+    h3.setAttribute("class", "subtitle has-text-danger");
+    h3.innerText = this.settings.anno;
+
     box.appendChild(pos);
     box.appendChild(h1);
     box.appendChild(h2);
+    box.appendChild(h3);
 
     ance.appendChild(box);
 
