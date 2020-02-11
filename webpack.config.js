@@ -45,7 +45,10 @@ module.exports = {
   },
   plugins: [
     new FriendlyErrorsWebpackPlugin(),
-    new CopyPlugin([{ from: "static", to: "./" }]),
+    new CopyPlugin([
+      { from: "static", to: "./" },
+      { from: "src/scss/img", to: "./img/" }
+    ]),
     new MiniCssExtractPlugin({
       filename: "css/[name].css"
     })
